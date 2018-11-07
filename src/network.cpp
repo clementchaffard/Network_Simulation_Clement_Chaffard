@@ -21,10 +21,7 @@ size_t Network::random_connect(const double& mean)
 		//for(size_t j(0);j<deg_i;++j){
 		while(degree(i)<deg_i+deg_init){
 					
-			/*while(!add_link(i,RNG.uniform_int(0,values.size()-1))){ 
-				
-				
-				}	++nbr_liens;*/
+		
 				if(tries>100000){
 					throw std::invalid_argument("generating infinite boucle ");
 				}
@@ -37,11 +34,6 @@ size_t Network::random_connect(const double& mean)
 		}
 		
 	}
-/*std::vector<int> vec(values.size());
-RNG.uniform_int(vec,0,100);
-for(size_t k(0);k<vec.size();++k){
-	std::cout<<vec[k]<<std::endl;
-}*/
 
 	return nbr_liens;
 	
@@ -62,7 +54,7 @@ bool Network::add_link(const size_t& a, const size_t& b)
 {
 	
 	
-	if((b!=a)and(!is_neigbour(*this,a,b))and (a<values.size()) and (b<values.size())){
+	if((b!=a)and(!is_neigbour(*this,a,b))and (a<values.size()) and (b<values.size() and a>=0 and b>=0)){
 
 		links.insert(std::make_pair(a,b));
 		links.insert(std::make_pair(b,a));
